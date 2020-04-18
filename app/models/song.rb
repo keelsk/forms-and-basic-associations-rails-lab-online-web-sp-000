@@ -14,8 +14,10 @@ class Song < ActiveRecord::Base
 
   def note_text=(text)
     text.each do |text|
-      note = Note.find_by(content: text)
-      self.notes << note
+      if !text.empty?
+        note = Note.create(content: text)
+        self.notes << note
+      end
     end
   end
 
