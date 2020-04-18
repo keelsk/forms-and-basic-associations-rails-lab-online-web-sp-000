@@ -12,11 +12,11 @@ class Song < ActiveRecord::Base
     self.artist ? self.artist.name : nil
   end
 
-  # def note_text=(text)
-  #   text.each do |text|
-  #     note = Note.find_by_id(content: text)
-  #     self.notes << note
-  #   end
-  # end
+  def note_text=(text)
+    text.each do |text|
+      note = Note.find_by_id(content: text)
+      self.notes << note
+    end
+  end
 
 end
